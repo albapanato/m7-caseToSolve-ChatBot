@@ -1,0 +1,181 @@
+/* Fonts */
+/* Import de la fuente "Roboto" */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+/* Animaciones */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  background: #131516;
+}
+
+/* Contenedor principal del chat */
+.chat-window {
+  font-family: "Roboto", sans-serif;
+  /*font-family: "Poppins", sans-serif;*/
+  background: #131516;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+  gap: 30px;
+}
+
+/* Zona de mensajes */
+.messages {
+  background: #0e0f11;
+  margin: auto;
+  margin-top: 40px;
+  width: 95%;
+  max-width: 700px;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 8px;
+  gap: 10px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos vista sin mensajes*/
+.no-messages {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  color: white;
+}
+.no-messages-img {
+  width: 60px;
+}
+
+.no-messages .no-messages-img:hover {
+  content: url("../../public/icons8-robot-mensaje-48.gif");
+}
+
+/* Estilos para el input */
+.input-bar {
+  display: flex;
+  padding: 8px;
+  max-width: 700px;
+  width: 90%;
+  margin: auto;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out;
+  background: #131516;
+  color: white;
+}
+
+.input-bar input:focus {
+  outline: none;
+}
+
+.input-bar button {
+  margin-left: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.input-bar button:hover {
+  transform: scale(1.05);
+}
+
+.user-message,
+.bot-message {
+  margin: 5px 0;
+  max-width: 70%;
+  padding: 11px;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+/* Mensaje del usuario */
+.user-message {
+  align-self: flex-end;
+  background: #343e4e;
+  border-radius: 15px 15px 0 15px;
+  /* Aplicar animación */
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+/* Mensaje del bot */
+.bot-message {
+  justify-content: flex-start;
+  background: #1e2228;
+  border-radius: 15px 15px 15px 0;
+  /* Aplicar animación */
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.message-container {
+  display: flex;
+  align-items: end;
+  margin: 5px 0;
+}
+
+.message-container.user {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.icons {
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  border-radius: 35%;
+  background-color: white; /* Fondo opcional */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+/* Transiciones y scroll */
+.messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
